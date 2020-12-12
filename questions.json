@@ -1,0 +1,194 @@
+[
+  {
+    "question": "Введите ваше имя",
+    "id": 0,
+    "type": "text",
+    "answers": [
+      {
+        "id": "1"
+      }
+    ]
+  },
+  {
+    "question": "Назовите хуки жизненного цикла компонента в Vue.js?",
+    "id": 1,
+    "type": "radio",
+    "answers": [
+      {
+        "id": "1",
+        "value": "beforeCreate, created, beforeMount, mounted,beforeUpdate,updated,activated,deactivated,beforeDestroy,destroyed,errorCaptured",
+        "correct": true
+      },
+      {
+        "id": "2",
+        "value": "componentWillUnmount(),componentWillReceiveProps, componentWillМmount, shouldComponentUpdate,componentWillUpdate, componentDidUpdate, componentDidCatch, componentDidMount",
+        "correct": false
+      },
+      {
+        "id": "3",
+        "value": "ngOnChanges, ngOnInit, ngDoCheck, ngAfterContentInit, ngAfterContentChecked, ngAfterViewInit, ngAfterViewChecked, ngOnDestroy",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "question": "На каком шаблоне проектирования основан Vue?",
+    "id": 2,
+    "type": "radio",
+    "answers": [
+      {
+        "id": "1",
+        "value": "MVVM",
+        "correct": true
+      },
+      {
+        "id": "2",
+        "value": "MVC",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "question": "Как обновить состояние компонента в Vue ?",
+    "id": 3,
+    "type": "radio",
+    "answers": [
+      {
+        "id": "1",
+        "value": "Vue.set",
+        "correct": true
+      },
+      {
+        "id": "2",
+        "value": "Vue.get",
+        "correct": false
+      },
+      {
+        "id": "3",
+        "value": "Vue отслеживает ВСЕ изменения автоматически",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "question": "Что такое вычисляемые свойства?",
+    "id": 4,
+    "type": "radio",
+    "answers": [
+      {
+        "id": "1",
+        "value": "это функции которые вычисляют свойства",
+        "correct": false
+      },
+      {
+        "id": "2",
+        "value": "это функции, которые возвращают измененные простые свойства",
+        "correct": true
+      },
+      {
+        "id": "3",
+        "value": "это все свойства числового типа",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "question": "... - это шаблон управления состоянием и библиотека для Vue.js приложения.Он предназначен для хранения основных данных для всех компонентов приложения и гарантирует предсказуемость реактивных изменений данных.",
+    "id": 5,
+    "type": "text",
+    "answers": [
+      {
+        "id": "1",
+        "value": "Vuex"
+      }
+    ]
+  },
+  {
+    "question": "Чем отличается v-if от v-show?",
+    "id": 6,
+    "type": "radio",
+    "answers": [
+      {
+        "id": "1",
+        "value": "ничем",
+        "correct": false
+      },
+      {
+        "id": "2",
+        "value": "v-show удаляет элемент из DOM если передать в него ложное условие, а v-if просто использует display:none, сохраняя элемент в DOM",
+        "correct": false
+      },
+      {
+        "id": "3",
+        "value": "v-if удаляет элемент из DOM если передать в него ложное условие, а v-show просто использует display:none, сохраняя элемент в DOM",
+        "correct": true
+      }
+    ]
+  },
+  {
+    "question": "Ести ли в Vue.js поддержка data binding? Если да, как его использовать?",
+    "id": 7,
+    "type": "radio",
+    "answers": [
+      {
+        "id": "1",
+        "value": "Да Vue.js поддержывает data binding, для связывания инпута и состояния следует использовать директиву v-model",
+        "correct": true
+      },
+      {
+        "id": "2",
+        "value": "Нет",
+        "correct": false
+      },
+      {
+        "id": "3",
+        "value": "Да Vue.js поддержывает data binding, для связывания инпута и состояния следует использовать директиву v-bind",
+        "correct": false
+      },
+      {
+        "id": "4",
+        "value": "Да Vue.js поддержывает data binding, для связывания инпута и состояния следует использовать директиву v-on",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "question": "С помощью чего можно реализовать маршрутизацию на стороне клиента в Vue?",
+    "id": 8,
+    "type": "radio",
+    "answers": [
+      {
+        "id": "1",
+        "value": "Vue Router",
+        "correct": true
+      },
+      {
+        "id": "2",
+        "value": "Vuex",
+        "correct": false
+      },
+      {
+        "id": "3",
+        "value": "Ничего дополнительного не потребуется, реализовывать маршрутизацию рекомендуется встроенными средствами vue ",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "question": "Как програмно сделать редирект в Vue Router?",
+    "id": 9,
+    "type": "radio",
+    "answers": [
+      {
+        "id": "1",
+        "value": "router.push()",
+        "correct": true
+      },
+      {
+        "id": "2",
+        "value": "Router.Path()",
+        "correct": false
+      }
+    ]
+  }
+]

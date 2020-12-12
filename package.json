@@ -1,30 +1,107 @@
 {
-  "name": "vuesecondproj",
+  "name": "f",
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "test": "jest",
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "lint:fix": "vue-cli-service lint --fix --color"
   },
   "dependencies": {
+    "axios": "^0.21.0",
     "core-js": "^3.6.5",
-    "vue": "^2.6.11"
+    "vue": "^2.6.11",
+    "vuex": "^3.6.0"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "~4.5.0",
     "@vue/cli-plugin-eslint": "~4.5.0",
     "@vue/cli-service": "~4.5.0",
     "babel-eslint": "^10.1.0",
-    "eslint": "^6.7.2",
-    "eslint-plugin-vue": "^6.2.2",
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb": "^18.2.1",
+    "eslint-config-prettier": "^6.15.0",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-jsx-a11y": "^6.4.1",
+    "eslint-plugin-prettier": "^3.1.4",
+    "eslint-plugin-vue": "^7.0.0-beta.4",
+    "husky": "^4.3.0",
+    "jest": "^26.6.3",
+    "less": "^3.12.2",
+    "less-loader": "^7.1.0",
+    "lint-staged": "^10.5.2",
+    "prettier": "^2.2.0",
     "vue-template-compiler": "^2.6.11"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.js": [
+      "npm run lint:fix",
+      "git add"
+    ]
   },
   "eslintConfig": {
     "root": true,
     "env": {
       "node": true
     },
+    "eslint.validate": [
+      "javascript",
+      "javascriptreact",
+      {
+        "language": "vue",
+        "autoFix": true
+      }
+    ],
+    "emmet.triggerExpansionOnTab": true,
+    "explorer.confirmDelete": false,
+    "explorer.confirmDragAndDrop": false,
+    "files.eol": "\n",
+    "terminal.integrated.fontSize": 12,
+    "window.zoomLevel": 3,
+    "workbench.startupEditor": "none",
+    "[javascript]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[javascriptreact]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[html]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[json]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[jsonc]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "files.trimTrailingWhitespace": true,
+    "editor.minimap.enabled": true,
+    "javascript.updateImportsOnFileMove.enabled": "always",
+    "diffEditor.ignoreTrimWhitespace": true,
+    "window.titleBarStyle": "custom",
+    "breadcrumbs.enabled": false,
+    "editor.fontLigatures": true,
+    "gitlens.views.repositories.location": "scm",
+    "gitlens.views.fileHistory.location": "gitlens",
+    "gitlens.views.lineHistory.location": "gitlens",
+    "gitlens.views.compare.location": "gitlens",
+    "gitlens.views.search.location": "gitlens",
+    "workbench.activityBar.visible": true,
+    "workbench.statusBar.visible": true,
+    "workbench.editor.showTabs": true,
+    "files.autoSave": "afterDelay",
+    "files.autoSaveDelay": 500,
+    "eslint.alwaysShowStatus": true,
+    "eslint.autoFixOnSave": true,
+    "npm.enableScriptExplorer": true,
+    "editor.largeFileOptimizations": false,
     "extends": [
       "plugin:vue/essential",
       "eslint:recommended"
@@ -38,5 +115,9 @@
     "> 1%",
     "last 2 versions",
     "not dead"
-  ]
+  ],
+  "description": "## Project setup ``` npm install ```",
+  "main": "babel.config.js",
+  "author": "",
+  "license": "ISC"
 }
