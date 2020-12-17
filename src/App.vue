@@ -12,6 +12,7 @@
         <div class="user-container">
             <div v-for="(user, i) in users" :key="i" class="user">
                 <p>{{ user.name }}</p>
+
                 <p>{{user.result}}%</p>
             </div>
         </div>
@@ -73,6 +74,7 @@
         -moz-osx-font-smoothing: grayscale;
         text-align: center;
         margin-top: 200px;
+        transition: 1s;
         width: 100%;
         height: 100%;
     }
@@ -80,6 +82,7 @@
     .user-container {
         display: flex;
         overflow: auto;
+
         width: 90%;
         margin: 6rem 0 0 0;
         left: 5%;
@@ -89,19 +92,43 @@
         .user {
             border-radius: 2rem;
             margin: 1rem;
-            padding: 1rem 2rem;
-            border: 0.1rem solid @black;
+            padding: 1rem 3rem;
+            transition: 1s;
+            min-width: 13rem;
+            min-height: 14rem;
+
+            p {
+                font-size: 2rem;
+            }
+        }
+
+        .user:nth-child(3n+1) {
+            background-color: rgba(255, 3, 243, 0.08);
+        }
+
+        .user:nth-child(3n+2) {
+            background-color: rgba(8, 0, 255, 0.08);
+        }
+
+        .user:nth-child(3n+3) {
+            background-color: rgba(104, 0, 255, 0.08);
         }
     }
 
+
     .button {
         margin: 4rem;
-        background: @buttonFace;
-        border-radius: 1rem;
-        font-size: 1.9rem;
-        padding: 1rem 2rem;
+
+    }
+
+    button {
+        font-size: 1.45rem;
+        font-weight: 500;
         border: none;
-        color: @buttonText;
+        background: @buttonFace;
+        color: @white;
+        padding: 0.8rem 4rem;
+        border-radius: 0.5rem;
     }
 
     ::-webkit-scrollbar {
@@ -183,6 +210,7 @@
     }
 
     .darkMode {
+        transition: 1s;
         color: @white;
         background: @black;
 
@@ -190,12 +218,21 @@
             color: @white;
         }
 
-        .user {
-            border: 0.1rem solid @white;
+        .user:nth-child(3n+1) {
+
+            background-color: #333333;
+        }
+
+        .user:nth-child(3n+2) {
+            background-color: #1d1d1d;
+        }
+
+        .user:nth-child(3n+3) {
+            background-color: #171717;
         }
 
         .button {
-            background: darken(@buttonFace, 10%);
+            background: #008dff;
         }
 
     }

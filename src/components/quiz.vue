@@ -1,7 +1,13 @@
 <template>
-    <div v-if="show" class="modal-shadow " @click.self="closeModal">
+    <div v-if="show" class="modal-shadow">
         <div class="modal wrapper ">
             <div id="quiz" class="quiz ">
+                <div v-if="!resShow" id="indicator" class="quiz-indicator">
+                    <span class="step">Шаг {{QuestionIndex+1}} из {{DATA.length}}</span>
+                    <div class="empty-indicator" :style="{width: DATA.length*6.3+ 'rem'}">
+                        <div class="full-indicator" :style="{width: (QuestionIndex+1)*6.3+ 'rem'}"></div>
+                    </div>
+                </div>
                 <div v-if="!resShow" class="slider-container">
                     <div id="questions" class="quiz-questions  slider-track">
                         <div v-for="(question,i) in DATA" :key="i" class="quiz-questions-item">
@@ -12,7 +18,6 @@
                                         <label>
                                             <input v-model="results[QuestionIndex]"
                                                    :type="question.type"
-                                                   :name="QuestionIndex"
                                                    :value="answer.id"
                                                    class="answer-input"/>
                                             {{question.type==="radio"?answer.value:null}}
@@ -23,11 +28,11 @@
                         </div>
                     </div>
                 </div>
-                <div v-else id="results" class="quiz-results ">
-                    <strong class="">{{results[0]}},вы прошли тест на:<span
+                <div v-else id="results" class="quiz-results">
+                    <strong class="result">{{results[0]}}, вы прошли тест на: <span
                             :class="{wrongAnswer:k<40, rightAnswer:k>60}">{{k.toFixed(2)}}%</span></strong>
                     <div v-for="(res,i) in DATA" :key="i" class="quiz-results-item">
-                        <strong class="quiz-results-item__question">{{res.question}}</strong>
+                        <p class="quiz-results-item__question">{{res.question}}</p>
                         <div class="quiz-results-item__answers">
                             <ul>
                                 <li v-for="answer of res.answers" :key="answer.id">
@@ -35,13 +40,13 @@
                                            :class="{ wrongAnswer: answer.id === results[res.id] && answer.correct === false,
 					rightAnswer: answer.correct === true}">
                                         {{answer.id===results[res.id]?
-                                        answer.value +"Ваш ответ"
+                                        answer.value +" - Ваш ответ"
                                         : answer.value}}
                                     </label>
                                     <label v-else class="answer"
                                            :class="{ wrongAnswer: answer.value.toUpperCase() !== results[res.id].toUpperCase(),
 					rightAnswer: answer.value.toUpperCase() === results[res.id].toUpperCase() }">
-                                        Ваш ответ:{{answer.value}}
+                                        Ваш ответ: {{answer.value}}
                                     </label>
 
                                 </li>
@@ -51,12 +56,11 @@
                     </div>
                 </div>
 
-                <div v-if="!resShow" id="indicator" class="quiz-indicator">{{QuestionIndex+1}}/{{DATA.length}}</div>
                 <div class="quiz-controls">
                     <button v-if="!resShow" id="btn-next" class="btn-next" @click="formClick">
                         Далее
                     </button>
-                    <button v-else id="btn-restart" class="btn-restart" @click="saveUserResult">Сохранить</button>
+                    <button v-else id="btn-restart" class="btn-save" @click="saveUserResult">Сохранить</button>
                 </div>
             </div>
         </div>
@@ -105,7 +109,6 @@
 
 						this.summaryResult();
 						this.DATA.shift()
-						console.log(this.results)
 						this.resShow = true;
 
 					} else {
@@ -176,7 +179,7 @@
     .slider-track {
         display: flex;
 
-        transition: 2s;
+        transition: 1.5s;
     }
 
     .modal-title {
@@ -196,23 +199,18 @@
 
     .modal {
         background: #fff;
-        border-radius: 8px;
-        padding: 2rem 0;
-        width: 50%;
+        border-radius: 1.5rem;
+        padding: 4rem 0;
+        width: 48%;
         position: fixed;
         left: 50%;
         transform: translate(-50%, -50%);
         top: 50%;
-        max-height: 85%;
+        height: 60rem;
+        max-height: 95%;
         overflow: auto;
     }
 
-    .darkMode {
-        .modal {
-            background-color: @black;
-        }
-
-    }
 
     .quiz-questions {
         display: flex;
@@ -220,10 +218,10 @@
 
     .quiz {
         margin: 0 auto;
-        width: 60rem;
+        width: 91.5%;
 
         &-indicator, &-results {
-            margin-bottom: 2rem;
+            margin-bottom: 5rem;
         }
 
         &-questions, &-results {
@@ -235,8 +233,10 @@
                 min-width: 100%;
 
                 &__question {
-                    font-size: 2.3rem;
-                    margin-bottom: 2rem;
+                    font-weight: 600;
+                    font-size: 1.8rem;
+                    text-align: left;
+                    margin-bottom: 3rem;
                 }
 
                 &__answers {
@@ -244,6 +244,9 @@
                     font-size: 2rem;
                     padding: 0;
                     list-style: none;
+                    display: flex;
+                    align-items: baseline;
+                    flex-direction: column;
                 }
 
             }
@@ -257,14 +260,104 @@
             color: green;
         }
 
-        label {
+        .quiz-controls {
+            display: flex;
+            justify-content: flex-end;
+        }
 
-            word-break: break-all;
+
+        ul {
+            padding: 0;
         }
 
         li {
             list-style: none;
+            text-align: initial;
         }
 
+        input {
+            width: 41rem;
+            border: none;
+            font-size: 1.5rem;
+            border-bottom: 0.5px solid #838383;
+        }
+
+        label {
+            white-space: normal;
+            font-size: 1.5rem;
+        }
+
+        .btn-next {
+            background: #2C98F0;
+            position: absolute;
+            top: 86%;
+        }
+
+        .btn-save {
+            border: 2px solid #62b7fb;
+            background: transparent;
+            color: #62b7fb;
+            font-weight: 600;
+        }
+
+        input[type="radio"] {
+            width: 3rem;
+        }
+    }
+
+    .step {
+        font-weight: 600;
+        font-size: 2.5rem;
+    }
+
+    #indicator {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .empty-indicator {
+        height: 1rem;
+        background: #F1F1F1;
+        border-radius: 100px;
+    }
+
+    .full-indicator {
+        background: #2C98F0;
+        border-radius: 100px;
+        height: 1rem;
+        transition: 1s;
+    }
+
+    .answer {
+        list-style: circle;
+        margin-bottom: 1rem;
+    }
+
+    .result {
+        margin-bottom: 3rem;
+    }
+
+    .quiz-results-item {
+        margin-top: 3rem;
+
+        &__question {
+            margin-bottom: 1rem;
+        }
+    }
+
+    .darkMode {
+        .modal {
+            background-color: @black;
+        }
+
+        input {
+            background: transparent;
+            color: white;
+        }
+
+        .empty-indicator {
+            background: #5f5f5f;
+        }
     }
 </style>

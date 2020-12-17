@@ -6,7 +6,19 @@ const usersStore = {
 		usersList: {
 			0: {
 				name: "Vlad",
-				result: "20",
+				result: "70.32",
+			},
+			2: {
+				name: "Vlad",
+				result: "40.54",
+			},
+			3: {
+				name: "Vlad",
+				result: "2.21",
+			},
+			4: {
+				name: "Vlad",
+				result: "20.66",
 			},
 		},
 	},

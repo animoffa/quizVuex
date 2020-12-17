@@ -16,12 +16,12 @@
     "answers": [
       {
         "id": "1",
-        "value": "beforeCreate, created, beforeMount, mounted,beforeUpdate,updated,activated,deactivated,beforeDestroy,destroyed,errorCaptured",
+        "value": "beforeCreate, created, beforeMount, mounted, beforeUpdate, updated, activated, deactivated, beforeDestroy, destroyed, errorCaptured",
         "correct": true
       },
       {
         "id": "2",
-        "value": "componentWillUnmount(),componentWillReceiveProps, componentWillМmount, shouldComponentUpdate,componentWillUpdate, componentDidUpdate, componentDidCatch, componentDidMount",
+        "value": "componentWillUnmount(),componentWillReceiveProps, componentWillМmount, shouldComponentUpdate, componentWillUpdate, componentDidUpdate, componentDidCatch, componentDidMount",
         "correct": false
       },
       {
